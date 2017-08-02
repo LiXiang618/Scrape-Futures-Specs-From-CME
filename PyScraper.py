@@ -49,7 +49,7 @@ with closing(Chrome()) as browser:
     for i in range(len(symbols)):
         tmp = FutureClass(symbols[i])
         browser.get('http://www.cmegroup.com/search/?q='+symbols[i])
-        elements = browser.find_elements_by_xpath("//tbody//tr[td/text()='"+symbols[i]+"' and contains(td,'Futures')]//td")
+        elements = browser.find_elements_by_xpath("//tbody//tr[td/text()='"+symbols[i]+"'and td/text()='Futures']//td")
         if not elements:
             print(tmp.symbol+": No such symbol!")
             tmp.errorFlag = 1
@@ -68,7 +68,7 @@ with closing(Chrome()) as browser:
         tmp.openInterest = elements[9].text
 
         # elements[0].click()#The first qualified element
-        linkElement = browser.find_elements_by_xpath("//tbody//tr[td/text()='"+symbols[i]+"' and contains(td,'Futures')]//td/a")
+        linkElement = browser.find_elements_by_xpath("//tbody//tr[td/text()='"+symbols[i]+"' and td/text()='Futures']//td/a")
         linkElement[0].click()
         tmp.url = browser.current_url
 
