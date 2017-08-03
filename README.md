@@ -1,2 +1,2 @@
 # ScrapeFuturesSpecsFromCME
-Use futures symbols to search and get their contract specs From CME website
+Use futures symbols to search and get their contract specs from CME website.
